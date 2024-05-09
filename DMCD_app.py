@@ -1,7 +1,6 @@
 from PIL import Image
 import streamlit as st
 import google.generativeai as genai
-import time
 
 genai.configure(api_key='AIzaSyAW1_N3acIUeHMH085udTt9Sk87zIbPZPE')
 
@@ -23,6 +22,11 @@ safety_settings = [
         "threshold": "BLOCK_NONE"
     }]
 
+import sys
+
+# Display Python version at the top of the Streamlit app
+python_version = sys.version
+st.text(f"Python version: {python_version}")
 
 img1 = st.file_uploader(label='Advert no. 1', type=['png', 'jpg'])
 img2 = st.file_uploader(label='Advert no. 2', type=['png', 'jpg'])
@@ -41,7 +45,7 @@ if img1 is not None and img2 is not None:
     st.image(upload_img1)
     st.markdown(response1.text)
 
-    #time.sleep(5) 
+    
     
     # Process the second image
     with st.spinner('Generating content for Advert 2...'):
@@ -50,7 +54,7 @@ if img1 is not None and img2 is not None:
     st.image(upload_img2)
     st.markdown(response2.text)
     
-    #time.sleep(5) 
+     
 
     model = genai.GenerativeModel('gemini-1.5-pro-latest')
 
