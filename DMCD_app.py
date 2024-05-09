@@ -3,7 +3,6 @@ import streamlit as st
 import google.generativeai as genai
 import time
 
-
 genai.configure(api_key='AIzaSyAW1_N3acIUeHMH085udTt9Sk87zIbPZPE')
 
 safety_settings = [
