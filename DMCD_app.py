@@ -1,8 +1,14 @@
 from PIL import Image
 import streamlit as st
 import google.generativeai as genai
+import os
+from dotenv import load_dotenv
 
-genai.configure(api_key='AIzaSyAW1_N3acIUeHMH085udTt9Sk87zIbPZPE')
+#genai.configure(api_key='AIzaSyAW1_N3acIUeHMH085udTt9Sk87zIbPZPE')
+os.environ['GOOGLE_API_KEY'] = 'AIzaSyAW1_N3acIUeHMH085udTt9Sk87zIbPZPE'
+load_dotenv()
+api_key = os.getenv("AIzaSyAW1_N3acIUeHMH085udTt9Sk87zIbPZPE")
+genai.configure(api_key=api_key)
 
 safety_settings = [
     {
